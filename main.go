@@ -33,5 +33,11 @@ func main() {
 		usersHandler.DELETE("deleteUser", handlers.DeleteUByName)
 	}
 
+	authHandler := r.Group("/auth")
+	{
+		authHandler.POST("/sign_up", handlers.SignUpHandler)
+		authHandler.POST("/sign_in", handlers.SignInHandler)
+	}
+
 	r.Run(":8080")
 }
